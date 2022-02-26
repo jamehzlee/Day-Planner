@@ -1,3 +1,13 @@
-var currentDate = moment().format("MMMM Do, YYYY");
+var textareaEl = $("textarea");
+var userData = textareaEl.submit(this);
 
-$("#currentDay").text(currentDate);
+setInterval(function() {
+    $("#currentDay").html(moment().format("MMMM DD, YYYY - hh:mm:ss A"));
+})
+
+function saveText() {
+    if ($(".saveBtn").click()) {
+        localStorage.setItem("userData", textareaEl.val());
+    }
+}
+saveText();
